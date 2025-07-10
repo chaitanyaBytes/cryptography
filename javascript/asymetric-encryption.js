@@ -1,4 +1,4 @@
-import { publicKey, privateKey } from "./keypair.js";
+import { publicKey, privateKey } from "../keypair.js";
 import { createSign, createVerify } from "crypto";
 
 const signer = createSign("rsa-sha256");
