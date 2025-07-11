@@ -6,10 +6,12 @@ const iv = randomBytes(16);
 
 const cipher = createCipheriv("aes256", key, iv);
 
+// encrypt
 const encrypted = cipher.update(message, "utf8", "hex") + cipher.final("hex");
 
 console.log(encrypted);
 
+// decrypt
 const decipher = createDecipheriv("aes256", key, iv);
 
 const decrypted =
