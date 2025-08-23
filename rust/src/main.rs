@@ -1,6 +1,7 @@
 pub mod create_keypair;
 pub mod hashing;
+pub mod signing;
 
 fn main() {
-    create_keypair::generate_keypair();
+    signing::sign_and_verify();
 }
