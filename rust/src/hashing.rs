@@ -1,3 +1,6 @@
+use sha1::Sha1 as Sha11;
+use sha2::{Digest, Sha256};
+
 pub struct Sha1 {
     h0: u32,
     h1: u32,
@@ -6,6 +9,7 @@ pub struct Sha1 {
     h4: u32,
 }
 
+// implementation of sha1 algorithm from scratch
 impl Sha1 {
     pub fn new() -> Self {
         Self {
@@ -97,4 +101,19 @@ impl Sha1 {
 
         result
     }
+}
+
+pub fn hashing() {
+    let input = b"hello";
+
+    let hash1 = Sha1::new().digest(input);
+
+    let hash2 = Sha256::digest(input);
+
+    println!("SHA-256: {}", hex::encode(hash2));
+
+    let hash3 = Sha11::digest(input);
+
+    println!("SHA-1: {}", hex::encode(hash1));
+    println!("SHA-1: {}", hex::encode(hash3));
 }
