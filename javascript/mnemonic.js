@@ -34,3 +34,17 @@ for (let i = 0; i < 4; i++) {
   const secret = Keypair.fromSeed(derivedSeed);
   console.log(`keypair ${i}: ${secret.publicKey.toBase58()}`);
 }
+
+for (let i = 0; i < 4; i++) {
+  let path = `m/44'/501'/${i}'`;
+  let derivedSeed = derivePath(path, seed.toString("hex")).key;
+  const secret = Keypair.fromSeed(derivedSeed);
+  console.log(`keypair ${i}: ${secret.publicKey.toBase58()}`);
+}
+
+for (let i = 0; i < 4; i++) {
+  let path = `m/44'/501'/0'/0'/${i}'`;
+  let derivedSeed = derivePath(path, seed.toString("hex")).key;
+  const secret = Keypair.fromSeed(derivedSeed);
+  console.log(`keypair ${i}: ${secret.publicKey.toBase58()}`);
+}
